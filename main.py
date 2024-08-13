@@ -78,22 +78,38 @@
 #send_email('Это сообщение для проверки связи', 'vasyok1337@gmail.com')
 #send_email('Это сообщение для проверки связи', 'urban.teacher@mail.ru')
 
-values_list = [12.3, '%)', True]
-values_dict = {'a': 5, 'b': False, 'c': "String"}
-values_list_2 = ['test_string', 45.89]
+#values_list = [12.3, '%)', True]
+#values_dict = {'a': 5, 'b': False, 'c': "String"}
+#values_list_2 = ['test_string', 45.89]
+#def print_params(a=2, b=':)', c=True):
+#    print(a, b, c)
+#print_params()
+#print_params(a=25, c=[1, 2, 4, ])  # есть вызов
+#def print_params_(*args, **kwargs):
+#    print(*args, **kwargs)
+#print_params_(values_list, values_dict)
+#print_params_(values_list_2, 74)
 
 
-def print_params(a=2, b=':)', c=True):
-    print(a, b, c)
+def single_root_word(root_word, *other_word: str):
+    same_word = []
+    for i in other_word:
+        enumeration = i.lower()
+        if enumeration == root_word:
+            same_word.append(enumeration)
+    return same_word
 
 
-print_params()
-print_params(a=25, c=[1, 2, 4, ])  # есть вызов
+result_1 = single_root_word('root', 'end', 'Root', 'teen', 'root')
+print(result_1)
 
+def get_multiplied_digits(number):
+    str_number = str(number)
+    first=int(str_number[0])
+    if len(str_number)>1:
+        return first * get_multiplied_digits(int(str_number[1:]))
+    else:
+        return first
 
-def print_params_(*args, **kwargs):
-    print(*args, **kwargs)
-
-
-print_params_(values_list, values_dict)
-print_params_(values_list_2, 74)
+result = get_multiplied_digits(40203)
+print(result)
