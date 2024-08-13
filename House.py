@@ -10,6 +10,9 @@ class House:
             else:
                 print(floor)
 
+    def __len__(self):
+        return self.number_floor
+
     def __str__(self):
         return f'{self.name} and {self.number_floor}'
 
@@ -17,3 +20,4 @@ class House:
 h_ = House('New_build', 19)
 print(h_)
 h_.to_go_(21)
+print(len(h_))
