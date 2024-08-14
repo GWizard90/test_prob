@@ -1,7 +1,6 @@
 import asyncio
 
 async def start_strongman(name: str, power: int):
-    boll = 0
     print(f'Силач {name} начал соревнования.')
     for boll in range(5):
         boll += 1
