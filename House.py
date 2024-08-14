@@ -1,5 +1,11 @@
 class House:
-    def __init__(self, name: str, number_floor: int):
+    house_history = []
+
+    def __new__(cls, *args, **kwargs):
+        cls.house_history.append(args[0])
+        return cls.house_history
+
+    def __init__(self, name, number_floor):
         self.name = name
         self.number_floor = number_floor
 
@@ -34,14 +40,15 @@ class House:
     def __add__(self, values: int):
         return self.number_floor + values
 
+    def __del__(self):
+        return f'{self.name}, снесён, но он останется в истории'
 
-h_ = House('New_build', 19)
-h_2 = House('Serpika', 12)
-print(h_), print(h_2)
-h_.to_go_(21), h_2.to_go_(14)
-print(len(h_)), print(len(h_2))
-h_ = h_ + 12
-h_2 = h_2 + 5
-print(h_)
-print(h_2)
-print(h_ > h_2)
+
+h1 = House('ЖК Эльбрус', 10)
+print(House.house_history)
+h2 = House('ЖК Акация', 20)
+print(House.house_history)
+h3 = House('ЖК Матрёшки', 20)
+print(House.house_history)
+del h1
+print(House.house_history)
